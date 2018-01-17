@@ -9,10 +9,14 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
+
+        //Kotlin依赖库
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //github库依赖
+        classpath "com.novoda:bintray-release:${LIBRARY_BINTRAY_RELEASE_VIERSION}"
     }
 }
 
@@ -25,4 +29,16 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+//自定义Debug包build时间获取函数
+def getDebugBuildTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd_HHmm')
+    return formattedDate
+}
+
+//自定义Release包build时间获取函数
+def getReleaseBuildTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getDefault())//包含时分秒
 }
