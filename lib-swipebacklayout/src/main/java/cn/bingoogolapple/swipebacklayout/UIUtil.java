@@ -46,9 +46,6 @@ class UIUtil {
         NO_NAVIGATION_BAR_MODEL_SET.add("Xiaomi HM Note 1S");
     }
 
-    private UIUtil() {
-    }
-
     /**
      * 获取底部导航栏高度
      *

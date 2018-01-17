@@ -39,9 +39,6 @@ public class BGASwipeBackManager implements Application.ActivityLifecycleCallbac
         return sInstance;
     }
 
-    private BGASwipeBackManager() {
-    }
-
     /**
      * 必须在 Application 的 onCreate 方法中调用
      */

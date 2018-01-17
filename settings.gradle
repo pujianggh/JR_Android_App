@@ -1,1 +1,1 @@
-include ':app', ':lib-common', ':lib-layoutswipeback', ':lib-swipebacklayout'
+include ':app', ':lib-common', ':lib-swipebacklayout'

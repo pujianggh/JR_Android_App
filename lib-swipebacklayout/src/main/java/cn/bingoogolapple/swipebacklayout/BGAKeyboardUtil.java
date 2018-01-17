@@ -34,8 +34,6 @@ import android.widget.EditText;
  * 描述:
  */
 public class BGAKeyboardUtil {
-    private BGAKeyboardUtil() {
-    }
 
     /**
      * 关闭activity中打开的键盘
