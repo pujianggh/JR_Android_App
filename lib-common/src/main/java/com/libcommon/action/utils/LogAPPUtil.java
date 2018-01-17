@@ -2,7 +2,7 @@ package com.libcommon.action.utils;
 
 import android.util.Log;
 
-import com.flyfnd.common.action.config.BuildConfig;
+import com.libcommon.action.config.BuildConfigure;
 
 /**
  * 日志项目打印工具
@@ -13,8 +13,8 @@ import com.flyfnd.common.action.config.BuildConfig;
  * @Description:
  */
 public class LogAPPUtil {
-    public static boolean isDebug = BuildConfig.DEBUG;        // 调试状态
-    public static String isTagDebug = BuildConfig.TAG_DEBUG;  // 调试Tag
+    public static boolean isDebug = BuildConfigure.IS_DEBUG;     // 调试状态
+    public static String isTagDebug = BuildConfigure.DEBUG_TAG;  // 调试Tag
 
     /**
      * 调试信息

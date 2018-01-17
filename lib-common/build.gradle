@@ -30,6 +30,7 @@ dependencies {
     api "com.android.support:multidex:${LIBRARY_SUPPORT_MULTIDEX_VIERSION}"
     api project(':lib-swipebacklayout')
     api project(':lib-okhttputils')
+    api project(':lib-andfix')
 }
 repositories {
     mavenCentral()

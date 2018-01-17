@@ -1,1 +1,1 @@
-include ':app', ':lib-common', ':lib-swipebacklayout', ':lib-okhttputils'
+include ':app', ':lib-common', ':lib-swipebacklayout', ':lib-okhttputils', ':lib-andfix'

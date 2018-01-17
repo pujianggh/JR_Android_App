@@ -2,11 +2,20 @@ package com.libcommon.action.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.provider.Settings;
 import android.support.annotation.RequiresPermission;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import com.libcommon.action.utils.setroom.HuaweiUtils;
+import com.libcommon.action.utils.setroom.MeizuUtils;
+import com.libcommon.action.utils.setroom.MiuiUtils;
+import com.libcommon.action.utils.setroom.QikuUtils;
+import com.libcommon.action.utils.setroom.RomUtils;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -23,6 +32,31 @@ import java.util.List;
  * @Description:
  */
 public class APPToolsUtil {
+
+    /**
+     * 打开系统权限设置
+     *
+     * @param context
+     */
+    public static void startAppSettings(Context context) {
+        if (RomUtils.checkIsMiuiRom()) {
+            MiuiUtils.applyMiuiPermission(context);
+        } else if (RomUtils.checkIsMeizuRom()) {
+            MeizuUtils.applyPermission(context);
+        } else if (RomUtils.checkIsHuaweiRom()) {
+            HuaweiUtils.applyPermission(context);
+        } else if (RomUtils.checkIs360Rom()) {
+            QikuUtils.applyPermission(context);
+        } else {
+            /**
+             * 启动当前应用设置页面
+             */
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            intent.setData(Uri.parse("package:" + APPToolsUtil.getAppPackageName(context)));
+            context.startActivity(intent);
+        }
+    }
+
     /**
      * 获取IP
      *
