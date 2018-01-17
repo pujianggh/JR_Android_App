@@ -7,3 +7,13 @@
 /build
 /captures
 .externalNativeBuild
+/lib-swipebacklayout/
+app/libs/
+lib-common/src/main/java/com/android/libcommon/config/
+lib-common/src/main/res/drawable/
+lib-swipebacklayout/
+!/lib-swipebacklayout/
+.gitignore
+build.gradle
+gradle.properties
+src/

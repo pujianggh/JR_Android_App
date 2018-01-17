@@ -9,7 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/libcommon" />
+            <option value="$PROJECT_DIR$/lib-common" />
+            <option value="$PROJECT_DIR$/lib-layoutswipeback" />
+            <option value="$PROJECT_DIR$/lib-swipebacklayout" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
