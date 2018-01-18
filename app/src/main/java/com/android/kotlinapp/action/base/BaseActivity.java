@@ -5,17 +5,17 @@ import android.support.annotation.Nullable;
 
 import com.android.kotlinapp.action.app.APPApplication;
 import com.android.kotlinapp.action.utils.ToastUtil;
-import com.libcommon.action.base.BaseSwipeBackActivity;
+import com.libcommon.action.base.CommonBaseSwipeBackActivity;
 
 /**
- * 基类：
+ * Activity基类：
  *
  * @author pujiang
  * @date 2018-1-18 10:02
  * @mail 515210530@qq.com
  * @Description:
  */
-public abstract class BaseActivity extends BaseSwipeBackActivity {
+public abstract class BaseActivity extends CommonBaseSwipeBackActivity {
     protected APPApplication mApp;
 
     @Override

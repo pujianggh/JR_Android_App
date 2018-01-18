@@ -1,8 +1,11 @@
 package com.libcommon.action.base;
 
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
+import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 
+import com.jaeger.library.StatusBarUtil;
 import com.libcommon.action.R;
 import com.libcommon.action.permission.BaseMPermissionsActivity;
 
@@ -16,7 +19,7 @@ import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class BaseSwipeBackActivity extends BaseMPermissionsActivity implements BGASwipeBackHelper.Delegate {
+public class CommonBaseSwipeBackActivity extends BaseMPermissionsActivity implements BGASwipeBackHelper.Delegate {
     protected String mTag;//用于日志打印或者类名查看
     protected BGASwipeBackHelper mSwipeBackHelper;//滑动返回
 
@@ -49,6 +52,25 @@ public class BaseSwipeBackActivity extends BaseMPermissionsActivity implements B
         mSwipeBackHelper.setIsShadowAlphaGradient(true);
         // 设置触发释放后自动滑动返回的阈值，默认值为 0.3f
         mSwipeBackHelper.setSwipeBackThreshold(0.3f);
+    }
+
+    /**
+     * 设置状态栏颜色
+     *
+     * @param color
+     */
+    protected void setStatusBarColor(@ColorInt int color) {
+        setStatusBarColor(color, StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
+    }
+
+    /**
+     * 设置状态栏颜色
+     *
+     * @param color
+     * @param statusBarAlpha 透明度
+     */
+    public void setStatusBarColor(@ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha) {
+        StatusBarUtil.setColorForSwipeBack(this, color, statusBarAlpha);
     }
 
     /**

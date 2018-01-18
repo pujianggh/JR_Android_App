@@ -11,7 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.MainActivity">
+        <!-- 启动界面 -->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent.Splash.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,9 +25,30 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.test.TestActivity" />
-        <activity android:name=".activity.test.Test1Activity" />
-        <activity android:name=".activity.test.Test2Activity" />
+        <!-- 主界面 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".activity.test.TestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".activity.test.Test1Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".activity.test.Test2Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
     </application>
 

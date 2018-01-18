@@ -1,7 +1,7 @@
 package com.android.kotlinapp.action.app;
 
 import com.android.kotlinapp.action.R;
-import com.libcommon.action.base.BaseApplication;
+import com.libcommon.action.base.CommonBaseApplication;
 import com.libcommon.action.utils.APPToolsUtil;
 
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackManager;
@@ -14,7 +14,7 @@ import cn.bingoogolapple.swipebacklayout.BGASwipeBackManager;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class APPApplication extends BaseApplication {
+public class APPApplication extends CommonBaseApplication {
     public static Class toIntentMainClass = "MainActivity".getClass();  //需要跳转主页的类
     private static APPApplication mInstance;
 

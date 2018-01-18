@@ -14,14 +14,8 @@ import com.libcommon.action.utils.LogAPPUtil;
  * @mail 515210530@qq.com
  * @Description:
  */
-
 public class Test1Activity extends BaseActivity {
     TextView textView;
-
-    @Override
-    public boolean isSupportSwipeBack() {
-        return false;
-    }
 
     @Override
     protected void initView(Bundle savedInstanceState) {

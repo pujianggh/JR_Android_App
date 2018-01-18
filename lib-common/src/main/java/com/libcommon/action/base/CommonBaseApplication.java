@@ -37,7 +37,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  * @mail 515210530@qq.com
  * @Description: 包含主要功能初始化，如：热修复、Application对象获取等
  */
-public class BaseApplication extends MultiDexApplication {
+public class CommonBaseApplication extends MultiDexApplication {
     protected OkHttpCall mOkHttpCall;
     protected DownloadMgr mDownloadMgr;
     private PatchManager mPatchManager;
