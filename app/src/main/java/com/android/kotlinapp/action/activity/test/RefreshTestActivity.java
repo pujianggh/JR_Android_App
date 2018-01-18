@@ -14,12 +14,12 @@ import com.libcommon.action.utils.LogAPPUtil;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class Test2Activity extends BaseActivity {
+public class RefreshTestActivity extends BaseActivity {
     TextView textView;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_test2);
         textView = (TextView) findViewById(R.id.textMsg);
         String action = getIntent().getExtras().getString("" + StrRes.INSTANCE.getAction());
         LogAPPUtil.i(mTag, "----->" + StrRes.INSTANCE.getAction() + " " + action);

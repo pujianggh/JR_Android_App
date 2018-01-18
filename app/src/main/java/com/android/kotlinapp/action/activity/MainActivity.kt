@@ -3,6 +3,7 @@ package com.android.kotlinapp.action.activity
 import android.content.Intent
 import android.os.Bundle
 import com.android.kotlinapp.action.R
+import com.android.kotlinapp.action.activity.test.RefreshTestActivity
 import com.android.kotlinapp.action.activity.test.Test1Activity
 import com.android.kotlinapp.action.activity.test.Test2Activity
 import com.android.kotlinapp.action.activity.test.TestActivity
@@ -38,6 +39,11 @@ class MainActivity : BaseActivity() {
         }
         button3.setOnClickListener {
             val intent = Intent(this, TestActivity::class.java)
+            intent.putExtra(StrRes.action, "0")
+            startActivityForResult(intent, 1)
+        }
+        button4.setOnClickListener {
+            val intent = Intent(this, RefreshTestActivity::class.java)
             intent.putExtra(StrRes.action, "0")
             startActivityForResult(intent, 1)
         }
