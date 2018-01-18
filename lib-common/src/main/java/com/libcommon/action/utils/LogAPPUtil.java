@@ -54,6 +54,17 @@ public class LogAPPUtil {
      *
      * @param msg
      */
+    public static void i(String tag,String msg) {
+        if (isDebug) {
+            Log.i(tag, "" + msg);
+        }
+    }
+
+    /**
+     * 调试信息
+     *
+     * @param msg
+     */
     public static void i(int msg) {
         if (isDebug) {
             Log.i(isTagDebug, "" + msg);

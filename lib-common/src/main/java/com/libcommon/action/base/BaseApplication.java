@@ -26,7 +26,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import cn.bingoogolapple.swipebacklayout.BGASwipeBackManager;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -42,14 +41,6 @@ public class BaseApplication extends MultiDexApplication {
     protected OkHttpCall mOkHttpCall;
     protected DownloadMgr mDownloadMgr;
     private PatchManager mPatchManager;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        // 必须在Application的onCreate 方法中执行
-        // BGASwipeBackManager.getInstance().init(this)来初始化滑动返回
-        BGASwipeBackManager.getInstance().init(this);
-    }
 
     /**
      * 热修复补丁初始化
