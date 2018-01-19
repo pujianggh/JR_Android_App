@@ -26,8 +26,6 @@
     <!-- line2 -->
     <color name="line_lightgray">#DEDEDE</color>
 
-    <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
     <color name="colorPrimaryDark">#00ae7d</color>
     <color name="colorPrimary">#00ce7d</color>
     <color name="colorAccent">@color/colorPrimary</color>
