@@ -7,4 +7,6 @@
     <color name="colorWindowBackground">@android:color/white</color>
     <color name="colorNavigationBar">@android:color/black</color>
 
+    <color name="imoocstyle">#CA0612</color>
+
 </resources>

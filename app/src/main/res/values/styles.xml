@@ -26,8 +26,10 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
-    <!-- 全屏显示，启动界面 -->
+    <!--设置-启动界面全屏-->
     <style name="AppTheme.Transparent.Splash.Fullscreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>

@@ -1,12 +1,15 @@
 package com.android.kotlinapp.action.activity.test;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.android.kotlinapp.action.R;
 import com.android.kotlinapp.action.base.BaseActivity;
-import com.android.kotlinapp.action.config.StrRes;
-import com.libcommon.action.utils.LogAPPUtil;
+
+import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
+import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 
 /**
  * @author pujiang
@@ -14,15 +17,46 @@ import com.libcommon.action.utils.LogAPPUtil;
  * @mail 515210530@qq.com
  * @Description:
  */
-public class RefreshTestActivity extends BaseActivity {
-    TextView textView;
+public class RefreshTestActivity extends BaseActivity implements BGARefreshLayout.BGARefreshLayoutDelegate {
+    private BGARefreshLayout mRefreshLayout;
+    private WebView mContentWv;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_test2);
-        textView = (TextView) findViewById(R.id.textMsg);
-        String action = getIntent().getExtras().getString("" + StrRes.INSTANCE.getAction());
-        LogAPPUtil.i(mTag, "----->" + StrRes.INSTANCE.getAction() + " " + action);
-        textView.setText("测试数据Test2Activity   " + action);
+        mRefreshLayout = (BGARefreshLayout) findViewById(R.id.refreshLayout);
+        mContentWv = (WebView) findViewById(R.id.wv_webview_content);
+        mRefreshLayout.setDelegate(this);
+
+        mContentWv.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                mRefreshLayout.endRefreshing();
+            }
+        });
+
+        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mApp, false);
+        moocStyleRefreshViewHolder.setOriginalImage(R.drawable.bga_refresh_moooc);
+        moocStyleRefreshViewHolder.setUltimateColor(R.color.imoocstyle);
+        mRefreshLayout.setRefreshViewHolder(moocStyleRefreshViewHolder);
+
+        mContentWv.getSettings().setJavaScriptEnabled(true);
+        mContentWv.loadUrl("https://github.com/bingoogolapple");
+    }
+
+    @Override
+    public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+        mContentWv.reload();
+    }
+
+    @Override
+    public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+        return false;
     }
 }

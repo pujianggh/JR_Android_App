@@ -118,12 +118,18 @@ public class BGAStickyNavLayout extends LinearLayout {
             mDirectWebView = (WebView) mContentView;
         } else if (mContentView instanceof ViewPager) {
             mDirectViewPager = (ViewPager) mContentView;
-            mDirectViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            mDirectViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
                 @Override
                 public void onPageSelected(int position) {
                     regetNestedContentView();
                 }
             });
+//            mDirectViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+//                @Override
+//                public void onPageSelected(int position) {
+//                    regetNestedContentView();
+//                }
+//            });
         } else {
             mDirectNormalView = mContentView;
         }

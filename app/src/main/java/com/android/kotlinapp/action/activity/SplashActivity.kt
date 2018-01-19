@@ -27,7 +27,6 @@ class SplashActivity : BaseActivity() {
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_splash)
         tv_version.setText("v" + APPToolsUtil.getAppVersionName(APPApplication.getInstance()))
-        setStatusBarColor(resources.getColor(R.color.colorPrimaryDark))
         Handler().postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             finish()

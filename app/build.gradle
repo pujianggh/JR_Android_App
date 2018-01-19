@@ -106,7 +106,6 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${LIBRARY_SUPPORT_TEST_RUNNER}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${LIBRARY_SUPPORT_TEST_ESPRESSO_CORE}"
     testImplementation "junit:junit:${LIBRARY_JUNIT}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(':lib-common')
 }
 
