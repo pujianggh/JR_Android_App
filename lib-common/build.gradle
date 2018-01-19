@@ -38,10 +38,12 @@ dependencies {
     api "com.android.support:support-v4:${LIBRARY_SUPPORT_V4}"
     api "com.android.support:multidex:${LIBRARY_SUPPORT_MULTIDEX_VIERSION}"
     api "com.jaeger.statusbaruitl:library:${LIBRARY_JAEGER_STATUSBARUITL_LIBRARY}"
+    api "com.github.bumptech.glide:glide:${LIBRARY_BUMPTECH_GLIDE}"
     api project(':lib-swipebacklayout')
     api project(':lib-okhttputils')
     api project(':lib-andfix')
     api project(':lib-pullrefresh')
+    api project(':lib-banner')
 }
 repositories {
     mavenCentral()

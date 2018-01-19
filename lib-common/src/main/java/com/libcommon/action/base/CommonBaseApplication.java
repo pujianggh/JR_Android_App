@@ -1,8 +1,6 @@
 package com.libcommon.action.base;
 
 import android.Manifest;
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.multidex.MultiDexApplication;
 
 import com.alipay.euler.andfix.patch.PatchManager;
@@ -15,12 +13,6 @@ import com.libcommon.action.config.AppConfig;
 import com.libcommon.action.net.DownloadMgr;
 import com.libcommon.action.utils.FileUtil;
 import com.libcommon.action.utils.PermissionUtil;
-import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,33 +59,6 @@ public class CommonBaseApplication extends MultiDexApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * 初始化ImageLoader
-     *
-     * @param context
-     */
-    protected void initImageLoader(Context context, int defaultImageId) {
-        DisplayImageOptions defaultDisplayImageOptions = new DisplayImageOptions.Builder()
-                .showImageOnFail(defaultImageId)
-                .showImageForEmptyUri(defaultImageId)
-                .cacheInMemory(true).cacheOnDisc(true)
-                .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .showImageOnLoading(null)
-                //.displayer(new RoundedBitmapDisplayer(0))
-                .build();
-
-        ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
-        config.threadPriority(Thread.NORM_PRIORITY - 2);
-        config.denyCacheImageMultipleSizesInMemory();
-        config.discCacheFileNameGenerator(new Md5FileNameGenerator());
-        config.discCacheSize(50 * 1024 * 1024); // 50 MiB
-        config.tasksProcessingOrder(QueueProcessingType.LIFO);
-        config.writeDebugLogs(); // Remove for release app
-        config.defaultDisplayImageOptions(defaultDisplayImageOptions);
-        ImageLoader.getInstance().init(config.build());
     }
 
     /**

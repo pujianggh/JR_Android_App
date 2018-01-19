@@ -5,8 +5,14 @@ import android.widget.TextView;
 
 import com.android.kotlinapp.action.R;
 import com.android.kotlinapp.action.base.BaseActivity;
-import com.android.kotlinapp.action.config.StrRes;
+import com.android.kotlinapp.action.utils.ThreadUtil;
 import com.libcommon.action.utils.LogAPPUtil;
+
+import cn.bingoogolapple.refreshlayout.BGAMeiTuanRefreshViewHolder;
+import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
+import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
+import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
+import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
 
 /**
  * @author pujiang
@@ -15,14 +21,134 @@ import com.libcommon.action.utils.LogAPPUtil;
  * @Description:
  */
 public class Test1Activity extends BaseActivity {
-    TextView textView;
+    private TextView textView;
+    private BGARefreshLayout mRefreshLayout;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_test);
         textView = (TextView) findViewById(R.id.textMsg);
-        String action = getIntent().getExtras().getString("" + StrRes.INSTANCE.getAction());
-        LogAPPUtil.i(mTag, "----->" + StrRes.INSTANCE.getAction() + " " + action);
-        textView.setText("测试数据Test1Activity   "+action);
+        mRefreshLayout = (BGARefreshLayout) findViewById(R.id.refreshLayout);
+        //style1();
+        //style2();
+        //style3();
+        style4();
     }
+
+    private void style4() {
+        BGAMeiTuanRefreshViewHolder meiTuanRefreshViewHolder = new BGAMeiTuanRefreshViewHolder(mApp, true);
+        meiTuanRefreshViewHolder.setPullDownImageResource(R.drawable.bga_refresh_mt_pull_down);
+        meiTuanRefreshViewHolder.setChangeToReleaseRefreshAnimResId(R.drawable.bga_refresh_mt_change_to_release_refresh);
+        meiTuanRefreshViewHolder.setRefreshingAnimResId(R.drawable.bga_refresh_mt_refreshing);
+        mRefreshLayout.setRefreshViewHolder(meiTuanRefreshViewHolder);
+
+        mRefreshLayout.setRefreshScaleDelegate(new BGARefreshLayout.BGARefreshScaleDelegate() {
+            @Override
+            public void onRefreshScaleChanged(float scale, int moveYDistance) {
+                LogAPPUtil.i("setRefreshScaleDelegate----->scale:" + scale + " moveYDistance:" + moveYDistance);
+            }
+        });
+        mRefreshLayout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
+            @Override
+            public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+                showToast("加载最新");
+                ThreadUtil.runInUIThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshLayout.endRefreshing();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+                return false;
+            }
+        });
+    }
+
+    private void style2() {
+        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mApp, true);
+        moocStyleRefreshViewHolder.setOriginalImage(R.drawable.bga_refresh_moooc);
+        moocStyleRefreshViewHolder.setUltimateColor(R.color.imoocstyle);
+        mRefreshLayout.setRefreshViewHolder(moocStyleRefreshViewHolder);
+
+        mRefreshLayout.setRefreshScaleDelegate(new BGARefreshLayout.BGARefreshScaleDelegate() {
+            @Override
+            public void onRefreshScaleChanged(float scale, int moveYDistance) {
+                LogAPPUtil.i("setRefreshScaleDelegate----->scale:" + scale + " moveYDistance:" + moveYDistance);
+            }
+        });
+        mRefreshLayout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
+            @Override
+            public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+                showToast("加载最新");
+                ThreadUtil.runInUIThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshLayout.endRefreshing();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+                return false;
+            }
+        });
+    }
+
+    private void style3() {
+        BGAStickinessRefreshViewHolder stickinessRefreshViewHolder = new BGAStickinessRefreshViewHolder(mApp, true);
+        stickinessRefreshViewHolder.setStickinessColor(R.color.imoocstyle);
+        stickinessRefreshViewHolder.setRotateImage(R.drawable.bga_refresh_stickiness);
+        mRefreshLayout.setRefreshViewHolder(stickinessRefreshViewHolder);
+
+        mRefreshLayout.setRefreshScaleDelegate(new BGARefreshLayout.BGARefreshScaleDelegate() {
+            @Override
+            public void onRefreshScaleChanged(float scale, int moveYDistance) {
+                LogAPPUtil.i("setRefreshScaleDelegate----->scale:" + scale + " moveYDistance:" + moveYDistance);
+            }
+        });
+        mRefreshLayout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
+            @Override
+            public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+                showToast("加载最新");
+                ThreadUtil.runInUIThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshLayout.endRefreshing();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+                return false;
+            }
+        });
+    }
+
+    private void style1() {
+        mRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mApp, true));
+        mRefreshLayout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
+            @Override
+            public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
+                showToast("加载最新");
+                ThreadUtil.runInUIThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshLayout.endRefreshing();
+                    }
+                }, 2000);
+            }
+
+            @Override
+            public boolean onBGARefreshLayoutBeginLoadingMore(BGARefreshLayout refreshLayout) {
+                return false;
+            }
+        });
+    }
+
+
 }

@@ -19,13 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-# Glide图片加载器Keep
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep public class * extends com.bumptech.glide.module.AppGlideModule
--keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
-  **[] $VALUES;
-  public *;
-}
-
-# Glide for DexGuard only
--keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+#Banner Keep
+-keep class cn.bingoogolapple.bgabanner.BGAViewPager { *; }

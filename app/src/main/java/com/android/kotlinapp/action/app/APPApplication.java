@@ -1,6 +1,5 @@
 package com.android.kotlinapp.action.app;
 
-import com.android.kotlinapp.action.R;
 import com.libcommon.action.base.CommonBaseApplication;
 import com.libcommon.action.utils.APPToolsUtil;
 
@@ -24,7 +23,6 @@ public class APPApplication extends CommonBaseApplication {
         mInstance = this;
         initConfigData();
         initOkHttpConfig();//初始化网络请求参数
-        initImageLoader(this, R.mipmap.ic_launcher);
         initAndFix(APPToolsUtil.getAppVersionName(this));
     }
 
