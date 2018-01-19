@@ -44,6 +44,7 @@ dependencies {
     api project(':lib-andfix')
     api project(':lib-pullrefresh')
     api project(':lib-banner')
+    api project(':lib-styletitle')
 }
 repositories {
     mavenCentral()

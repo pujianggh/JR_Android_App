@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.bingoogolapple.refreshlayout.BGARefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/refreshLayout"
-    style="@style/MatchMatch"
+    style="@style/MatchMatch.Vertical"
     android:background="@android:color/white">
 
-    <ScrollView style="@style/MatchMatch">
+    <include layout="@layout/layout_title_bar" />
 
-        <LinearLayout
-            style="@style/MatchMatch"
-            android:orientation="vertical">
+    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+        android:id="@+id/refreshLayout"
+        style="@style/MatchMatch"
+        android:background="@android:color/white">
 
-            <TextView
-                android:id="@+id/textMsg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="测试1" />
-        </LinearLayout>
-    </ScrollView>
+        <ScrollView style="@style/MatchMatch">
 
-</cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+            <LinearLayout
+                style="@style/MatchMatch"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="测试1" />
+            </LinearLayout>
+        </ScrollView>
+
+    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+</LinearLayout>

@@ -27,6 +27,7 @@ class MainActivity : BaseActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
+        setTitleBarLayout("首页", true)
         button1.setOnClickListener {
             val intent = Intent(this, Test1Activity::class.java)
             intent.putExtra(StrRes.action, "1")

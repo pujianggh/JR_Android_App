@@ -13,6 +13,7 @@ import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
+import cn.bingoogolapple.titlebar.BGATitleBar;
 
 /**
  * @author pujiang
@@ -28,11 +29,18 @@ public class Test1Activity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         setContentView(R.layout.activity_test);
         textView = (TextView) findViewById(R.id.textMsg);
+        setTitle();
         mRefreshLayout = (BGARefreshLayout) findViewById(R.id.refreshLayout);
+
         //style1();
         //style2();
-        //style3();
-        style4();
+        style3();
+//        style4();
+    }
+
+    private void setTitle() {
+        setTitleBarLayout("测试刷新", true);
+        mTitleBar.setLeftDrawable(R.drawable.selector_title_back);
     }
 
     private void style4() {

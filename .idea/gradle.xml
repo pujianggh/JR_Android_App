@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/lib-common" />
             <option value="$PROJECT_DIR$/lib-okhttputils" />
             <option value="$PROJECT_DIR$/lib-pullrefresh" />
+            <option value="$PROJECT_DIR$/lib-styletitle" />
             <option value="$PROJECT_DIR$/lib-swipebacklayout" />
           </set>
         </option>
