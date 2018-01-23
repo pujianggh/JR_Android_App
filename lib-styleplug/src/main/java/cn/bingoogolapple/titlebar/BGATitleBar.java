@@ -36,7 +36,7 @@ public class BGATitleBar extends RelativeLayout {
 
     public BGATitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        View.inflate(context, R.layout.view_bgatitlebar, this);
+        View.inflate(context, R.layout.bga_titlebar_view, this);
         initView();
         setListener();
         initAttrs(context, attrs);

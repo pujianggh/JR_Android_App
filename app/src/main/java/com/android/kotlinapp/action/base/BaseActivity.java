@@ -11,6 +11,7 @@ import com.android.kotlinapp.action.app.APPApplication;
 import com.android.kotlinapp.action.utils.ToastUtil;
 import com.libcommon.action.base.CommonBaseSwipeBackActivity;
 
+import cn.bingoogolapple.sweetaction.SweetAlertDialog;
 import cn.bingoogolapple.titlebar.BGATitleBar;
 
 /**
@@ -22,14 +23,15 @@ import cn.bingoogolapple.titlebar.BGATitleBar;
  * @Description:
  */
 public abstract class BaseActivity extends CommonBaseSwipeBackActivity {
-    protected APPApplication mApp;
+    protected APPApplication mAPPApplication;
+    private SweetAlertDialog mLoadingDialog;
     protected BGATitleBar mTitleBar;
     private LinearLayout mTitleBarLayer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mApp = APPApplication.getInstance();
+        mAPPApplication = APPApplication.getInstance();
 
         initView(savedInstanceState);
     }
@@ -45,10 +47,6 @@ public abstract class BaseActivity extends CommonBaseSwipeBackActivity {
     }
 
     protected void showToast(String text) {
-        ToastUtil.show(text);
-    }
-
-    protected void showToast(int text) {
         ToastUtil.show(text);
     }
 
@@ -100,5 +98,27 @@ public abstract class BaseActivity extends CommonBaseSwipeBackActivity {
 
             }
         });
+    }
+
+    /**
+     * 进度加载对话框-显示
+     */
+    public void showLoadingDialog() {
+        if (mLoadingDialog == null) {
+            mLoadingDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+            mLoadingDialog.getProgressHelper().setBarColor(getResources().getColor(R.color.colorPrimary));
+            mLoadingDialog.setCancelable(true);
+            mLoadingDialog.setTitleText("数据加载中...");
+        }
+        mLoadingDialog.show();
+    }
+
+    /**
+     * 隐藏加载
+     */
+    public void dismissLoadingDialog() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+        }
     }
 }

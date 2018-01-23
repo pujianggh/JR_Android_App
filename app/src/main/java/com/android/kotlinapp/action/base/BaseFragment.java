@@ -1,6 +1,5 @@
 package com.android.kotlinapp.action.base;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -8,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.kotlinapp.action.app.APPApplication;
+import com.android.kotlinapp.action.utils.ToastUtil;
 import com.libcommon.action.base.CommonBaseFragment;
 
 /**
@@ -20,14 +21,16 @@ import com.libcommon.action.base.CommonBaseFragment;
  */
 public abstract class BaseFragment extends CommonBaseFragment {
     protected String mTag;//用于日志打印或者类名查看
+    protected APPApplication mAPPApplication;
     protected View mContentView;
-    protected Activity mActivity;
+    protected BaseActivity mActivity;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mTag = this.getClass().getSimpleName();
-        mActivity = getActivity();
+        mAPPApplication = APPApplication.getInstance();
+        mActivity = (BaseActivity) getActivity();
     }
 
     @Override
@@ -48,8 +51,28 @@ public abstract class BaseFragment extends CommonBaseFragment {
         mContentView = LayoutInflater.from(mActivity).inflate(layoutResID, null);
     }
 
+    protected void showToast(String text) {
+        ToastUtil.show(text);
+    }
+
     /**
      * 初始化View控件
      */
     protected abstract void initView(Bundle savedInstanceState);
+
+    /**
+     * 显示-进度对话框
+     */
+    protected void showLoadingDialog() {
+        mActivity.showLoadingDialog();
+    }
+
+    /**
+     * 隐藏对话框
+     */
+    protected void dismissLoadingDialog() {
+        if (isVisible()) {
+            mActivity.dismissLoadingDialog();
+        }
+    }
 }

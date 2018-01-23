@@ -3,10 +3,7 @@ package com.android.kotlinapp.action.activity
 import android.content.Intent
 import android.os.Bundle
 import com.android.kotlinapp.action.R
-import com.android.kotlinapp.action.activity.test.RefreshTestActivity
-import com.android.kotlinapp.action.activity.test.Test1Activity
-import com.android.kotlinapp.action.activity.test.Test2Activity
-import com.android.kotlinapp.action.activity.test.TestActivity
+import com.android.kotlinapp.action.activity.test.*
 import com.android.kotlinapp.action.base.BaseActivity
 import com.android.kotlinapp.action.config.StrRes
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,6 +25,17 @@ class MainActivity : BaseActivity() {
     override fun initView(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
         setTitleBarLayout("首页", true)
+        button5.setOnClickListener {
+            val intent = Intent(this, Test5Activity::class.java)
+            intent.putExtra(StrRes.action, "1")
+            startActivityForResult(intent, 1)
+        }
+        button6.setOnClickListener {
+            val intent = Intent(this, Test6Activity::class.java)
+            intent.putExtra(StrRes.action, "1")
+            startActivityForResult(intent, 1)
+        }
+
         button1.setOnClickListener {
             val intent = Intent(this, Test1Activity::class.java)
             intent.putExtra(StrRes.action, "1")

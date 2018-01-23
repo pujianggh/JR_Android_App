@@ -29,19 +29,22 @@ public class RefreshTestActivity extends BaseActivity implements BGARefreshLayou
         mRefreshLayout.setDelegate(this);
 
         mContentWv.setWebViewClient(new WebViewClient() {
+
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
+                showLoadingDialog();
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                dismissLoadingDialog();
                 mRefreshLayout.endRefreshing();
             }
         });
 
-        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mApp, false);
+        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mAPPApplication, false);
         moocStyleRefreshViewHolder.setOriginalImage(R.drawable.bga_refresh_moooc);
         moocStyleRefreshViewHolder.setUltimateColor(R.color.imoocstyle);
         mRefreshLayout.setRefreshViewHolder(moocStyleRefreshViewHolder);

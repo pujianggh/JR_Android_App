@@ -18,3 +18,9 @@
 
 -dontwarn cn.bingoogolapple.titlebar.**
 -keep class cn.bingoogolapple.titlebar.**{*;}
+
+-dontwarn cn.bingoogolapple.sweetaction.**
+-keep class cn.bingoogolapple.sweetaction.**{*;}
+
+-dontwarn cn.bingoogolapple.alert.**
+-keep class cn.bingoogolapple.alert.**{*;}

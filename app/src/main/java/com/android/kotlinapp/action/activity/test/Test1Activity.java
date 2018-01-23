@@ -13,7 +13,6 @@ import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGANormalRefreshViewHolder;
 import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
 import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
-import cn.bingoogolapple.titlebar.BGATitleBar;
 
 /**
  * @author pujiang
@@ -44,7 +43,7 @@ public class Test1Activity extends BaseActivity {
     }
 
     private void style4() {
-        BGAMeiTuanRefreshViewHolder meiTuanRefreshViewHolder = new BGAMeiTuanRefreshViewHolder(mApp, true);
+        BGAMeiTuanRefreshViewHolder meiTuanRefreshViewHolder = new BGAMeiTuanRefreshViewHolder(mAPPApplication, true);
         meiTuanRefreshViewHolder.setPullDownImageResource(R.drawable.bga_refresh_mt_pull_down);
         meiTuanRefreshViewHolder.setChangeToReleaseRefreshAnimResId(R.drawable.bga_refresh_mt_change_to_release_refresh);
         meiTuanRefreshViewHolder.setRefreshingAnimResId(R.drawable.bga_refresh_mt_refreshing);
@@ -76,7 +75,7 @@ public class Test1Activity extends BaseActivity {
     }
 
     private void style2() {
-        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mApp, true);
+        BGAMoocStyleRefreshViewHolder moocStyleRefreshViewHolder = new BGAMoocStyleRefreshViewHolder(mAPPApplication, true);
         moocStyleRefreshViewHolder.setOriginalImage(R.drawable.bga_refresh_moooc);
         moocStyleRefreshViewHolder.setUltimateColor(R.color.imoocstyle);
         mRefreshLayout.setRefreshViewHolder(moocStyleRefreshViewHolder);
@@ -107,7 +106,7 @@ public class Test1Activity extends BaseActivity {
     }
 
     private void style3() {
-        BGAStickinessRefreshViewHolder stickinessRefreshViewHolder = new BGAStickinessRefreshViewHolder(mApp, true);
+        BGAStickinessRefreshViewHolder stickinessRefreshViewHolder = new BGAStickinessRefreshViewHolder(mAPPApplication, true);
         stickinessRefreshViewHolder.setStickinessColor(R.color.imoocstyle);
         stickinessRefreshViewHolder.setRotateImage(R.drawable.bga_refresh_stickiness);
         mRefreshLayout.setRefreshViewHolder(stickinessRefreshViewHolder);
@@ -122,9 +121,11 @@ public class Test1Activity extends BaseActivity {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 showToast("加载最新");
+                showLoadingDialog();
                 ThreadUtil.runInUIThread(new Runnable() {
                     @Override
                     public void run() {
+                        dismissLoadingDialog();
                         mRefreshLayout.endRefreshing();
                     }
                 }, 2000);
@@ -138,7 +139,7 @@ public class Test1Activity extends BaseActivity {
     }
 
     private void style1() {
-        mRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mApp, true));
+        mRefreshLayout.setRefreshViewHolder(new BGANormalRefreshViewHolder(mAPPApplication, true));
         mRefreshLayout.setDelegate(new BGARefreshLayout.BGARefreshLayoutDelegate() {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
