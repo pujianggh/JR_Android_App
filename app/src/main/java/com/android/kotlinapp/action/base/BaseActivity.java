@@ -47,7 +47,7 @@ public abstract class BaseActivity extends CommonBaseSwipeBackActivity {
     }
 
     protected void showToast(String text) {
-        ToastUtil.show(text);
+        ToastUtil.INSTANCE.show(text);
     }
 
     /**

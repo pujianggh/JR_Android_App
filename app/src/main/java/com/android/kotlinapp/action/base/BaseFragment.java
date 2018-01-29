@@ -52,7 +52,7 @@ public abstract class BaseFragment extends CommonBaseFragment {
     }
 
     protected void showToast(String text) {
-        ToastUtil.show(text);
+        ToastUtil.INSTANCE.show(text);
     }
 
     /**

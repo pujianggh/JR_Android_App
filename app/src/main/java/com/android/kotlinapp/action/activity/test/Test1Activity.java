@@ -59,7 +59,7 @@ public class Test1Activity extends BaseActivity {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 showToast("加载最新");
-                ThreadUtil.runInUIThread(new Runnable() {
+                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
@@ -90,7 +90,7 @@ public class Test1Activity extends BaseActivity {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 showToast("加载最新");
-                ThreadUtil.runInUIThread(new Runnable() {
+                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
@@ -122,7 +122,7 @@ public class Test1Activity extends BaseActivity {
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 showToast("加载最新");
                 showLoadingDialog();
-                ThreadUtil.runInUIThread(new Runnable() {
+                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
                     @Override
                     public void run() {
                         dismissLoadingDialog();
@@ -144,7 +144,7 @@ public class Test1Activity extends BaseActivity {
             @Override
             public void onBGARefreshLayoutBeginRefreshing(BGARefreshLayout refreshLayout) {
                 showToast("加载最新");
-                ThreadUtil.runInUIThread(new Runnable() {
+                ThreadUtil.INSTANCE.runInUIThread(new Runnable() {
                     @Override
                     public void run() {
                         mRefreshLayout.endRefreshing();
