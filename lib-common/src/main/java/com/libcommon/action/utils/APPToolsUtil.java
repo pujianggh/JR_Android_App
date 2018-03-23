@@ -1,5 +1,6 @@
 package com.libcommon.action.utils;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.annotation.RequiresPermission;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -167,5 +169,40 @@ public class APPToolsUtil {
             e.getStackTrace();
         }
         return "";
+    }
+
+    /**
+     * 拨打电话 （直接拨打电话）
+     *
+     * @param context
+     * @param phoneNum
+     */
+    public static void callPhone(Context context, String phoneNum) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        Uri data = Uri.parse("tel:" + phoneNum);
+        intent.setData(data);
+        context.startActivity(intent);
+    }
+
+    /**
+     * 拨打电话 （添加到系统拨号界面，由用户手动拨打）
+     *
+     * @param context
+     * @param phoneNum
+     */
+    public static void diallPhone(Context context, String phoneNum) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        Uri data = Uri.parse("tel:" + phoneNum);
+        intent.setData(data);
+        context.startActivity(intent);
     }
 }

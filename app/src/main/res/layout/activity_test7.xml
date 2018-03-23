@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchMatch.Vertical"
+    android:background="@android:color/white">
+
+    <include layout="@layout/layout_title_bar" />
+
+    <ScrollView
+        style="@style/MatchMatch"
+        android:scrollbars="none">
+
+        <LinearLayout style="@style/MatchWrap.Vertical">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="拨打电话，权限获取" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="下载更新APK" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="删除APK安装包" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式4" />
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式5" />
+
+            <Button
+                android:id="@+id/button6"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式6" />
+
+            <Button
+                android:id="@+id/button7"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式7" />
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式8" />
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/MatchWrap"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="样式9" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

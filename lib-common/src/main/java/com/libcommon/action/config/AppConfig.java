@@ -17,6 +17,10 @@ public final class AppConfig {
     private static final String FILE_CACHE_PATH_ROOT = FileUtil.getCachePath();//保存到SD卡
     //文件路径保存的确切位置
     public static final String FILE_CACHE_PATH = FILE_CACHE_PATH_ROOT + "/JRTZ_Cache";
+    //版本更新APK文件位置
+    public static final String FILE_APK_PATH = FILE_CACHE_PATH + "/apkfile";
+    //版本更新APK文件名称
+    public static final String FILE_APK_NAME = "JRTZ_update_apk.apk";
     //补丁文件位置
     public static final String FILE_PATCH_PATH = FILE_CACHE_PATH + "/patchfile";
     //补丁文件名称

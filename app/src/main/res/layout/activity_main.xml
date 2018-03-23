@@ -55,4 +55,10 @@
         android:layout_marginTop="10dp"
         android:text="Kotlin测试" />
 
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="功能测试1" />
 </LinearLayout>

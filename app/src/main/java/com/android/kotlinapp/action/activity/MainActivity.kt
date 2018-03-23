@@ -59,5 +59,10 @@ class MainActivity : BaseActivity() {
         button7.setOnClickListener {
             startActivity(Intent(this, KotlinTestActivity::class.java))
         }
+        button8.setOnClickListener {
+            val intent = Intent(this, Test7Activity::class.java)
+            intent.putExtra(StrRes.action, "1")
+            startActivityForResult(intent, 1)
+        }
     }
 }
