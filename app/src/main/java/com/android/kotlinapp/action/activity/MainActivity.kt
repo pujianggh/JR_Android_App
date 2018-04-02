@@ -64,5 +64,10 @@ class MainActivity : BaseActivity() {
             intent.putExtra(StrRes.action, "1")
             startActivityForResult(intent, 1)
         }
+        button9.setOnClickListener {
+            val intent = Intent(this, Test7Activity::class.java)
+            intent.putExtra(StrRes.action, "1")
+            startActivityForResult(intent, 1)
+        }
     }
 }
